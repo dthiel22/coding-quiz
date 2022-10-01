@@ -7,13 +7,6 @@ var answerArr1 = ["11","22","33","44"];
 var answerArr2 = ["111","222","333","444"];
 var answerArr3 = ["1111","2222","3333","4444"];
 
-// fills in blanks for testing
-// var questionSelect = questionArr[0]
-// var answerSelect1 = answerArr0[0]
-// var answerSelect2 = answerArr2[1]
-// var answerSelect3 = answerArr3[2]
-// var answerSelect4 = answerArr4[3]
-
 var questionSelect = ""
 var answerSelect1 = ""
 var answerSelect2 = ""
@@ -62,18 +55,21 @@ startBtn.addEventListener("click", function () {
     }, 1000);
     // randomly select staring word
     questionSelect = questionArr[Math.floor(Math.random() * questionArr.length)];
+    console.log(questionArr)
     console.log(questionSelect);
     guesses = [];
     //diplay "_" for each letter in selected word
-    for (let i = 0; i < questionSelect; i++) {
+    for (let i = 0; i < questionArr[i]; i++) {
+        questionSelect = questionArr[i]
         answerSelect1 = answerArr0[i]
         answerSelect2 = answerArr1[i]
         answerSelect3 = answerArr2[i]
         answerSelect4 = answerArr3[i]
-        console.log(answerArr0[i])
-        console.log(answerArr1[i])
-        console.log(answerArr2[i])
-        console.log(answerArr3[i])
+        console.log(questionSelect)
+        console.log(answerSelect1)
+        console.log(answerSelect2)
+        console.log(answerSelect3)
+        console.log(answerSelect4)
         questionPlace.textContent = questionSelect
         answerPlace1.textContent = answerSelect1
         answerPlace2.textContent = answerSelect2
