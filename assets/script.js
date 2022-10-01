@@ -1,11 +1,10 @@
 console.log("linked");
 
 //each questionArr holds each question. answersArr hold all the answers
-var questionArr = ["Q1","Q2","Q3","Q4"];
-var answerArr0 = ["1","2","3","4"];
-var answerArr1 = ["11","22","33","44"];
-var answerArr2 = ["111","222","333","444"];
-var answerArr3 = ["1111","2222","3333","4444"];
+var questionPack1 = ["A", "1","2","3","4"];
+var questionPack2 = ["B","11","22","33","44"];
+var questionPack3 = ["C", "111","222","333","444"];
+var questionPack3 = ["D", "1111","2222","3333","4444"];
 
 var questionSelect = ""
 var answerSelect1 = ""
@@ -25,11 +24,11 @@ var startBtn = document.querySelector("#start-game");
 var timeLeftSpan = document.querySelector("#time-left");
 
 // TODO: these second vars go into functoins to change vars to grab select, change text to var value
-questionPlace.textContent = questionSelect
-answerPlace1.textContent = answerSelect1
-answerPlace2.textContent = answerSelect2
-answerPlace3.textContent = answerSelect3
-answerPlace4.textContent = answerSelect4
+// questionPlace.textContent = questionSelect
+// answerPlace1.textContent = answerSelect1
+// answerPlace2.textContent = answerSelect2
+// answerPlace3.textContent = answerSelect3
+// answerPlace4.textContent = answerSelect4
 
 //need a timer to display in the top right of the page
 startBtn.addEventListener("click", function () {
@@ -53,30 +52,41 @@ startBtn.addEventListener("click", function () {
         lossesSpan.textContent = losses;
       }
     }, 1000);
-    // randomly select staring word
-    questionSelect = questionArr[Math.floor(Math.random() * questionArr.length)];
-    console.log(questionArr)
-    console.log(questionSelect);
-    guesses = [];
-    //diplay "_" for each letter in selected word
-    for (let i = 0; i < questionArr[i]; i++) {
-        questionSelect = questionArr[i]
-        answerSelect1 = answerArr0[i]
-        answerSelect2 = answerArr1[i]
-        answerSelect3 = answerArr2[i]
-        answerSelect4 = answerArr3[i]
-        console.log(questionSelect)
-        console.log(answerSelect1)
-        console.log(answerSelect2)
-        console.log(answerSelect3)
-        console.log(answerSelect4)
-        questionPlace.textContent = questionSelect
-        answerPlace1.textContent = answerSelect1
-        answerPlace2.textContent = answerSelect2
-        answerPlace3.textContent = answerSelect3
-        answerPlace4.textContent = answerSelect4
-    }
-  });
+    // quiz question
+    questionSelect = questionPack1[0]
+    answerSelect1 = questionPack1[1]
+    answerSelect2 = questionPack1[2]
+    answerSelect3 = questionPack1[3]
+    answerSelect4 = questionPack1[4]
+    questionPlace.textContent = questionSelect
+    answerPlace1.textContent = answerSelect1
+    answerPlace2.textContent = answerSelect2
+    answerPlace3.textContent = answerSelect3
+    answerPlace4.textContent = answerSelect4
+})
+//     questionSelect = questionPack1[Math.floor(Math.random() * questionArr.length)];
+//     console.log(questionArr)
+//     console.log(questionSelect);
+//     guesses = [];
+//     //diplay "_" for each letter in selected word
+//     for (let i = 0; i < questionArr[i]; i++) {
+//         questionSelect = questionArr[i]
+//         answerSelect1 = answerArr0[i]
+//         answerSelect2 = answerArr1[i]
+//         answerSelect3 = answerArr2[i]
+//         answerSelect4 = answerArr3[i]
+//         console.log(questionSelect)
+//         console.log(answerSelect1)
+//         console.log(answerSelect2)
+//         console.log(answerSelect3)
+//         console.log(answerSelect4)
+//         questionPlace.textContent = questionSelect
+//         answerPlace1.textContent = answerSelect1
+//         answerPlace2.textContent = answerSelect2
+//         answerPlace3.textContent = answerSelect3
+//         answerPlace4.textContent = answerSelect4
+//     }
+//   });
 
 
 //question appears in question holder + answers
@@ -98,6 +108,7 @@ startBtn.addEventListener("click", function () {
     //     answerPlace3.textContent = answerSelect3
     //     answerPlace4.textContent = answerSelect4
     // }
+
 //for loop counting through the arrays of questions to pull up
 
 
