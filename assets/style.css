@@ -1,0 +1,22 @@
+body {
+    background-color: salmon;
+}
+
+header {
+    background-color: bisque;
+    height: 10vh;
+}
+
+main {
+    background-color: cadetblue;
+    height: 60vh;
+    padding: 2%;
+    flex-direction: row;
+}
+
+#question-holder {
+    height: 80%;
+    margin: 2%;
+    padding: 1%;
+    background-color:lavender;
+}
