@@ -9,7 +9,7 @@ header {
 
 main {
     background-color: cadetblue;
-    height: 60vh;
+    height: 75vh;
     padding: 2%;
     flex-direction: row;
 }
@@ -19,4 +19,8 @@ main {
     margin: 2%;
     padding: 1%;
     background-color:lavender;
+}
+
+h5 {
+    background-color: lightblue;
 }
