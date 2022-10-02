@@ -33,6 +33,8 @@ var timeLeftSpan = document.querySelector("#time-left");
 var submitEl = document.querySelector("#submit")
 var questionHolder = document.querySelector("#question-holder")
 var highScores = document.querySelector("#high-scores")
+var newHighScore = ""
+var newHighScoreInitials = ""
 
 // TODO: these second vars go into functoins to change vars to grab select, change text to var value
 // questionPlace.textContent = questionSelect
@@ -46,10 +48,12 @@ startBtn.addEventListener("click", function () {
     if (isPlaying) {
       return;
     }
-    console.log("game started!");
     isPlaying = true;
     timeLeft = 30;
     clearInterval(timer);
+    form.style.display = "none"
+    highScoreBtn.style.display = "none";
+    startBtn.style.display= "none";
     // start countdown timer
     timer = setInterval(function () {
       timeLeft--;
@@ -58,6 +62,7 @@ startBtn.addEventListener("click", function () {
       if (timeLeft === 0) {
         clearInterval(timer);
         isPlaying = false;
+        displayForm()
       }
     }, 1000);
     // TODO: could make question object to pull arrays from??
@@ -78,62 +83,73 @@ startBtn.addEventListener("click", function () {
 answerHolder.addEventListener("click", function (event) {
     // once game is started, listen for mouseClick
     if (isPlaying) {
-      var mouseClick = event.target.innerHTML;
-      console.log(mouseClick);
+    var mouseClick = event.target.textContent;
+    console.log(mouseClick)
       // if answer is correct, console.log you selected right
-        if (questionSelect === questionPack1[0] && mouseClick.includes("answer3")) {
-            console.log("you selected right")
-            questionSelect = questionPack2[0]
-            answerSelect1 = questionPack2[1]
-            answerSelect2 = questionPack2[2]
-            answerSelect3 = questionPack2[3]
-            answerSelect4 = questionPack2[4]
-            questionPlace.textContent = questionSelect
-            answerPlace1.textContent = answerSelect1
-            answerPlace2.textContent = answerSelect2
-            answerPlace3.textContent = answerSelect3
-            answerPlace4.textContent = answerSelect4;}
+        questionSelect = questionPack1[0]
+        answerSelect1 = questionPack1[1]
+        answerSelect2 = questionPack1[2]
+        answerSelect3 = questionPack1[3]
+        answerSelect4 = questionPack1[4]
+        questionPlace.textContent = questionSelect
+        answerPlace1.textContent = answerSelect1
+        answerPlace2.textContent = answerSelect2
+        answerPlace3.textContent = answerSelect3
+        answerPlace4.textContent = answerSelect4
+            if (questionSelect === questionPack1[0] && mouseClick.includes("1")) {
+                console.log("you selected right")
+                questionSelect = questionPack2[0]
+                answerSelect1 = questionPack2[1]
+                answerSelect2 = questionPack2[2]
+                answerSelect3 = questionPack2[3]
+                answerSelect4 = questionPack2[4]
+                questionPlace.textContent = questionSelect
+                answerPlace1.textContent = answerSelect1
+                answerPlace2.textContent = answerSelect2
+                answerPlace3.textContent = answerSelect3
+                answerPlace4.textContent = answerSelect4;}
 
-        if (questionSelect === questionPack2[0] && mouseClick.includes("answer1")) {
-            console.log("you selected right")
-            questionSelect = questionPack3[0]
-            answerSelect1 = questionPack3[1]
-            answerSelect2 = questionPack3[2]
-            answerSelect3 = questionPack3[3]
-            answerSelect4 = questionPack3[4]
-            questionPlace.textContent = questionSelect
-            answerPlace1.textContent = answerSelect1
-            answerPlace2.textContent = answerSelect2
-            answerPlace3.textContent = answerSelect3
-            answerPlace4.textContent = answerSelect4;}
+            if (questionSelect === questionPack2[0] && mouseClick.includes("11")) {
+                console.log("you selected right")
+                questionSelect = questionPack3[0]
+                answerSelect1 = questionPack3[1]
+                answerSelect2 = questionPack3[2]
+                answerSelect3 = questionPack3[3]
+                answerSelect4 = questionPack3[4]
+                questionPlace.textContent = questionSelect
+                answerPlace1.textContent = answerSelect1
+                answerPlace2.textContent = answerSelect2
+                answerPlace3.textContent = answerSelect3
+                answerPlace4.textContent = answerSelect4;}
 
-        if (questionSelect === questionPack3[0] && mouseClick.includes("answer2")) {
-            console.log("you selected right")
-            questionSelect = questionPack4[0]
-            answerSelect1 = questionPack4[1]
-            answerSelect2 = questionPack4[2]
-            answerSelect3 = questionPack4[3]
-            answerSelect4 = questionPack4[4]
-            questionPlace.textContent = questionSelect
-            answerPlace1.textContent = answerSelect1
-            answerPlace2.textContent = answerSelect2
-            answerPlace3.textContent = answerSelect3
-            answerPlace4.textContent = answerSelect4;}
+            if (questionSelect === questionPack3[0] && mouseClick.includes("111")) {
+                console.log("you selected right")
+                questionSelect = questionPack4[0]
+                answerSelect1 = questionPack4[1]
+                answerSelect2 = questionPack4[2]
+                answerSelect3 = questionPack4[3]
+                answerSelect4 = questionPack4[4]
+                questionPlace.textContent = questionSelect
+                answerPlace1.textContent = answerSelect1
+                answerPlace2.textContent = answerSelect2
+                answerPlace3.textContent = answerSelect3
+                answerPlace4.textContent = answerSelect4;}
 
-        if (questionSelect === questionPack4[0] && mouseClick.includes("answer4")) {
-            clearInterval(timer)
-            questionPlace.textContent = "All done!"
-            answerPlace1.textContent = "your final score is: " + timeLeft
-            answerPlace2.textContent = ""
-            answerPlace3.textContent = ""
-            answerPlace4.textContent = ""
-            displayForm()
+            if (questionSelect === questionPack4[0] && mouseClick.includes("1111")) {
+                clearInterval(timer)
+                questionPlace.textContent = "All done!"
+                answerPlace1.textContent = "your final score is: " + timeLeft
+                answerPlace2.textContent = ""
+                answerPlace3.textContent = ""
+                answerPlace4.textContent = ""
+                displayForm()
+            }
         }
-    }
-});
+})
 
 //function to show form + submit button
 function displayForm (){
+    isPlaying = false
     form.style.display = "inline-block";
     submitEl.style.display= "inline-block";  	
 }
@@ -147,6 +163,7 @@ submitEl.addEventListener("click", function (event) {
     };
     localStorage.setItem("score", JSON.stringify(combineSubmit));
     displayScoreBoard()
+    renderScores()
 })
 
 function renderScores() {
@@ -169,7 +186,6 @@ function displayScoreBoard () {
     highScoreBtn.style.display = "none";
     startBtn.style.display= "none";
     quizBtn.style.display = "block";
-    renderScores()
 }
 
 quizBtn.addEventListener("click", function () {
@@ -182,7 +198,20 @@ function displayQuiz () {
     highScoreBtn.style.display = "block";
     startBtn.style.display= "inline-block";
     quizBtn.style.display = "none";
+    form.style.display = "none";
+    submitEl.style.display= "none"
+
 }
+
+var combineSubmit = {
+    name:"bob",
+    time:20,
+};
+
+var storeSubmitsArr = [combineSubmit]
+
+
+
 
 
 
