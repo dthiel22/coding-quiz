@@ -26,6 +26,8 @@ var answerPlace2 = document.querySelector("#answer2")
 var answerPlace3 = document.querySelector("#answer3")
 var answerPlace4 = document.querySelector("#answer4")
 var form = document.querySelector("#form")
+var highScoreBtn = document.querySelector("#high-score-button");
+var quizBtn = document.querySelector("#quiz-button");
 var startBtn = document.querySelector("#start-game");
 var timeLeftSpan = document.querySelector("#time-left");
 var submitEl = document.querySelector("#submit")
@@ -119,12 +121,10 @@ answerHolder.addEventListener("click", function (event) {
             answerPlace4.textContent = answerSelect4;}
 
         if (questionSelect === questionPack4[0] && mouseClick.includes("answer4")) {
-            console.log("you won")
-            clearInterval(timer);
-            console.log(timeLeft)
+            clearInterval(timer)
             questionPlace.textContent = "All done!"
-            answerPlace1.textContent = "your final score is"
-            answerPlace2.textContent = timeLeft
+            answerPlace1.textContent = "your final score is: " + timeLeft
+            answerPlace2.textContent = ""
             answerPlace3.textContent = ""
             answerPlace4.textContent = ""
             displayForm()
@@ -138,42 +138,57 @@ function displayForm (){
     submitEl.style.display= "inline-block";  	
 }
 
-//hit submit button
 submitEl.addEventListener("click", function (event) {
     event.preventDefault();
-    console.log(form.value)
-    console.log(timeLeft)
+    if (form.value !== null)
     combineSubmit = {
         name:form.value, 
         userScore:timeLeft
     };
-    console.log(combineSubmit)
-    console.log(combineSubmit.form)
-    console.log(combineSubmit.score)
     localStorage.setItem("score", JSON.stringify(combineSubmit));
-    renderScores()
-
-    function renderScores() {
-        var combineSubmitLog = JSON.parse(localStorage.getItem("score"));
-        console.log(combineSubmitLog)
-        displayHighscoreInitials ()
-
-        function displayHighscoreInitials () {
-            questionHolder.style.display = "none";
-            highScores.style.display = "block"
-            var newHighScoreInitials = document.createElement("h5")
-            newHighScoreInitials.textContent = combineSubmitLog.name
-            highScores.append(newHighScoreInitials)
-            var newHighScore = document.createElement("h5")
-            newHighScore.textContent = combineSubmitLog.userScore
-            highScores.append(newHighScore)
-        }
-    }
+    displayScoreBoard()
 })
 
-//else answer is false, wrong! - 10 timer
+function renderScores() {
+    var combineSubmitLog = JSON.parse(localStorage.getItem("score"));
+    var newHighScoreInitials = document.createElement("h5")
+    newHighScoreInitials.textContent = combineSubmitLog.name
+    highScores.append(newHighScoreInitials)
+    var newHighScore = document.createElement("h5")
+    newHighScore.textContent = combineSubmitLog.userScore
+    highScores.append(newHighScore)
+}
 
-//regardless...next question..replace question text + button (all veriables)
+highScoreBtn.addEventListener("click", function () {
+    displayScoreBoard ()
+})
+
+function displayScoreBoard () {
+    questionHolder.style.display = "none";
+    highScores.style.display = "block";
+    highScoreBtn.style.display = "none";
+    startBtn.style.display= "none";
+    quizBtn.style.display = "block";
+    renderScores()
+}
+
+quizBtn.addEventListener("click", function () {
+    displayQuiz ()
+})
+
+function displayQuiz () {
+    questionHolder.style.display = "block";
+    highScores.style.display = "none";
+    highScoreBtn.style.display = "block";
+    startBtn.style.display= "inline-block";
+    quizBtn.style.display = "none";
+}
+
+
+
+//hit submit button and place object combineSubmit as a string for localStorage
+
+//else answer is false, wrong! - 10 timer
 
 
 //answer question > if statement > wrong -time > right correct > quesiton replaced

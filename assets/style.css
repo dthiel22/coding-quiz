@@ -29,10 +29,14 @@ h5 {
     display: none;
 }
 
+#quiz-button{
+    display: none;
+}
+
 #high-scores {
     height: 80%;
     margin: 2%;
     padding: 1%;
-    background-color:lavender;
+    background-color:rgb(169, 255, 204);
     display: none;
 }
