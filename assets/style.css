@@ -24,3 +24,15 @@ main {
 h5 {
     background-color: lightblue;
 }
+
+#form , #submit {
+    display: none;
+}
+
+#high-scores {
+    height: 80%;
+    margin: 2%;
+    padding: 1%;
+    background-color:lavender;
+    display: none;
+}
