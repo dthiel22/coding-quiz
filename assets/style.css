@@ -25,7 +25,10 @@ main {
 }
 
 #answer-holder {
-
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 0vh;
 }
 
 h5 {
@@ -48,4 +51,12 @@ h5 {
     display: none;
     flex-direction: row;
     overflow-y: auto;
+}
+
+#initials, #score {
+    padding: 1%
+}
+
+section h5 {
+    background-color: none;
 }
