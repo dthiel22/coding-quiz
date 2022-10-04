@@ -39,7 +39,7 @@ startBtn.addEventListener("click", function () {
         return;
     }
     isPlaying = true;
-    timeLeft = 30;
+    timeLeft = 60;
     clearInterval(timer);
     form.style.display = "none"
     highScoreBtn.style.display = "none";
@@ -67,8 +67,7 @@ startBtn.addEventListener("click", function () {
 })
 
 //click on question to see if "true"
-answerHolder.addEventListener("click", function (event) {
-    // once game is started, listen for mouseClick
+answerPlace1.addEventListener("click", function (event) {
     var mouseClick = event.target.textContent;
     console.log(mouseClick)
     if (questionSelect === questionPack1[0] && mouseClick === "column") {
@@ -84,8 +83,13 @@ answerHolder.addEventListener("click", function (event) {
         answerPlace2.textContent = answerSelect2
         answerPlace3.textContent = answerSelect3
         answerPlace4.textContent = answerSelect4;
-    }
-
+    } else {
+        timeLeft = timeLeft - 5
+}})
+    
+answerPlace3.addEventListener("click", function (event) {
+    var mouseClick = event.target.textContent;
+    console.log(mouseClick)
     if (questionSelect === questionPack2[0] && mouseClick === "hyperlink") {
         console.log("you selected right")
         questionSelect = questionPack3[0]
@@ -98,8 +102,13 @@ answerHolder.addEventListener("click", function (event) {
         answerPlace2.textContent = answerSelect2
         answerPlace3.textContent = answerSelect3
         answerPlace4.textContent = answerSelect4;
-    }
+    } else {
+        timeLeft = timeLeft - 5
+}})
 
+answerPlace4.addEventListener("click", function (event) {
+    var mouseClick = event.target.textContent;
+    console.log(mouseClick)
     if (questionSelect === questionPack3[0] && mouseClick === "function") {
         console.log("you selected right")
         questionSelect = questionPack4[0]
@@ -112,14 +121,19 @@ answerHolder.addEventListener("click", function (event) {
         answerPlace2.textContent = answerSelect2
         answerPlace3.textContent = answerSelect3
         answerPlace4.textContent = answerSelect4;
-    } 
+    } else {
+        timeLeft = timeLeft - 5
+}})
 
+answerPlace2.addEventListener("click", function (event) {
+    var mouseClick = event.target.textContent;
+    console.log(mouseClick)
     if (questionSelect === questionPack4[0] && mouseClick === "array") {
             clearInterval(timer)
             displayForm()
-        }
-    }
-)
+        } else {
+            timeLeft = timeLeft - 5
+}})
 
 //function to show form + submit button
 function displayForm() {
