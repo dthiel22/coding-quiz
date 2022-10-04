@@ -33,8 +33,8 @@ var timeLeftSpan = document.querySelector("#time-left");
 var submitEl = document.querySelector("#submit")
 var questionHolder = document.querySelector("#question-holder")
 var highScores = document.querySelector("#high-scores")
-var newHighScore = ""
-var newHighScoreInitials = ""
+var initialsEl = document.querySelector("#initials")
+var scoreEl = document.querySelector("#score")
 
 // TODO: these second vars go into functoins to change vars to grab select, change text to var value
 // questionPlace.textContent = questionSelect
@@ -154,29 +154,43 @@ function displayForm (){
     submitEl.style.display= "inline-block";  	
 }
 
+// updating the localStorage
 submitEl.addEventListener("click", function (event) {
     event.preventDefault();
-    if (form.value !== null)
-    combineSubmit = {
-        name:form.value, 
-        userScore:timeLeft
-    };
-    localStorage.setItem("score", JSON.stringify(combineSubmit));
-    displayScoreBoard()
-    renderScores()
+    if (form.value !== "") {
+        updateScore = JSON.parse(localStorage.getItem("score") || "[]")
+        updateScore.push({name:form.value,userScore:timeLeft})
+        console.log(updateScore)
+        localStorage.setItem("score", JSON.stringify(updateScore))
+        displayScoreBoard()
+        renderScores()
+    }
+    else {
+        alert("you need to enter in your initials")
+    }
 })
 
 function renderScores() {
-    var combineSubmitLog = JSON.parse(localStorage.getItem("score"));
-    var newHighScoreInitials = document.createElement("h5")
-    newHighScoreInitials.textContent = combineSubmitLog.name
-    highScores.append(newHighScoreInitials)
-    var newHighScore = document.createElement("h5")
-    newHighScore.textContent = combineSubmitLog.userScore
-    highScores.append(newHighScore)
+    if (JSON.parse(localStorage.getItem("score") === null)){
+        alert("you need to take the quiz atleast once to view highscores!")
+    } else{
+    var retrieveScore = JSON.parse(localStorage.getItem("score"))
+    for (let i = 0; i < retrieveScore.length; i++) {
+    var input = retrieveScore[i]
+    initialsEl = document.createElement("p")
+    initialsEl.textContent = input["name"]
+    highScores.append(initialsEl)
+    scoreEl = document.createElement("p")
+    scoreEl.textContent = input["userScore"]
+    highScores.append(scoreEl)
+    return
+    }}
 }
 
 highScoreBtn.addEventListener("click", function () {
+    // if (scoreEl.textContent === ""){
+    //     renderScores ()}
+    renderScores()
     displayScoreBoard ()
 })
 
@@ -202,13 +216,6 @@ function displayQuiz () {
     submitEl.style.display= "none"
 
 }
-
-var combineSubmit = {
-    name:"bob",
-    time:20,
-};
-
-var storeSubmitsArr = [combineSubmit]
 
 
 
