@@ -1,6 +1,3 @@
-console.log("linked");
-
-//each questionArr holds each question. answersArr hold all the answers
 var questionPack1 = ["The _________ value stacks the flex items vertically (from top to bottom)", "column", "row", "wrap", "direction"];
 var questionPack2 = ["The <a> tag defines a ________", "color", "image", "hyperlink", "class"];
 var questionPack3 = ["A JavaScript _______ is a block of code designed to perform a particular task.", "object", "array", "classes", "function"];
@@ -18,7 +15,6 @@ var isPlaying = false;
 var timer;
 var initials;
 
-//vars to grab that specific class
 var questionPlace = document.querySelector("#question-title")
 var answerHolder = document.querySelector('#answer-holder')
 var answerPlace1 = document.querySelector("#answer1")
@@ -33,6 +29,7 @@ var timeLeftSpan = document.querySelector("#time-left");
 var submitEl = document.querySelector("#submit")
 var questionHolder = document.querySelector("#question-holder")
 var highScores = document.querySelector("#high-scores")
+
 var initialsEl = document.querySelector("#initials")
 var scoreEl = document.querySelector("#score")
 
@@ -115,24 +112,25 @@ answerHolder.addEventListener("click", function (event) {
         answerPlace2.textContent = answerSelect2
         answerPlace3.textContent = answerSelect3
         answerPlace4.textContent = answerSelect4;
-    }
+    } 
 
     if (questionSelect === questionPack4[0] && mouseClick === "array") {
-        clearInterval(timer)
-        displayForm()
+            clearInterval(timer)
+            displayForm()
+        }
     }
-})
+)
 
 //function to show form + submit button
 function displayForm() {
     isPlaying = false
-    form.style.display = "inline-block";
-    submitEl.style.display = "inline-block";
     questionPlace.textContent = "All done!"
     answerPlace1.textContent = "your final score is: " + timeLeft
     answerPlace2.textContent = ""
     answerPlace3.textContent = ""
     answerPlace4.textContent = ""
+    form.style.display = "block";
+    submitEl.style.display = "block";
 }
 
 // updating the localStorage
@@ -152,26 +150,24 @@ submitEl.addEventListener("click", function (event) {
 
 function renderScores() {
     var retrieveScore = JSON.parse(localStorage.getItem("score"))
-    initialsEl.removeChild
-    scoreEl.removeChild
+    console.log(retrieveScore)
+    console.log(JSON.stringify.retrieveScore)
+    displayScoreBoard()
     for (let i = 0; i < retrieveScore.length; i++) {
         var input = retrieveScore[i]
-        initialsP = document.createElement("p")
+        var initialsP = document.createElement("p")
         initialsP.textContent = input["name"]
         initialsEl.append(initialsP)
-        scoreP = document.createElement("p")
+        var scoreP = document.createElement("p")
         scoreP.textContent = input["userScore"]
         scoreEl.append(scoreP)
-        displayScoreBoard()
     }
 }
 
-//view high score button
 highScoreBtn.addEventListener("click", function () {
     if (JSON.parse(localStorage.getItem("score") === null)) {
         alert("you need to take the quiz atleast once to view highscores!")
     } else {
-        displayScoreBoard()
         renderScores()
     }
 })
@@ -189,6 +185,7 @@ quizBtn.addEventListener("click", function () {
 })
 
 function displayQuiz() {
+    window.location.reload();
     questionHolder.style.display = "block";
     highScores.style.display = "none";
     highScoreBtn.style.display = "block";
@@ -197,17 +194,3 @@ function displayQuiz() {
     form.style.display = "none";
     submitEl.style.display = "none"
 }
-
-
-
-
-
-
-//hit submit button and place object combineSubmit as a string for localStorage
-
-//else answer is false, wrong! - 10 timer
-
-
-//answer question > if statement > wrong -time > right correct > quesiton replaced
-//no more questions > timer stop, value capture, logged as score > input name > save localStorage.setItem("score", score)
-//highscore separate page
