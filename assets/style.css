@@ -4,7 +4,7 @@ body {
 }
 
 header {
-    background-color: bisque;
+    background-color: cadetblue;
     height: 8vh;
     display: flex;
     flex-direction: wrap;
@@ -22,6 +22,10 @@ main {
     margin: 2%;
     padding: 1%;
     background-color:lavender;
+}
+
+#answer-holder {
+
 }
 
 h5 {
