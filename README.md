@@ -1,99 +1,67 @@
-# 04 Web APIs: Code Quiz
+# Coding Quiz
 
-## Your Task
+## Description
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+The goal was to make a project that could test the basic understanding of some HTML, CSS, and JavaScript and record the time left to make some competition for friends. 
 
-To help familiarize you with these tests and allow you to use the skills covered in this module, this Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+- What was your motivation?
+- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
+- What problem does it solve?
+- What did you learn?
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+## Table of Contents (Optional)
 
-## User Story
+If your README is long, add a table of contents to make it easy for users to find what they need.
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
 
-## Acceptance Criteria
+## Installation
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
-## Mock-Up
+## Usage
 
-The following animation demonstrates the application functionality:
+Provide instructions and examples for use. Include screenshots as needed.
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
+To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-## Grading Requirements
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+    ```md
+    ![alt text](assets/images/screenshot.png)
+    ```
 
-This Challenge is graded based on the following criteria: 
+## Credits
 
-### Technical Acceptance Criteria: 40%
+List your collaborators, if any, with links to their GitHub profiles.
 
-* Satisfies all of the preceding acceptance criteria.
+If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-### Deployment: 32%
+If you followed tutorials, include links to those here as well.
 
-* Application deployed at live URL.
+## License
 
-* Application loads with no errors.
+The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
 
-* Application GitHub URL submitted.
+--
+🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
 
-* GitHub repository contains application code.
+## Badges
 
-### Application Quality: 15%
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
-* Application user experience is intuitive and easy to navigate.
+Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+## Features
 
-* Application user interface style is clean and polished.
+If your project has a lot of features, list them here.
 
-* Application resembles the mock-up functionality provided in the Challenge instructions.
+## How to Contribute
 
-### Repository Quality: 13%
+If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
-* Repository has a unique name.
+## Tests
 
-* Repository follows best practices for file structure and naming conventions.
+Go the extra mile and write tests for your application. Then provide examples on how to run them here.
 
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.

@@ -14,13 +14,13 @@ var answerSelect4 = ""
 var isPlaying = false;
 var timer;
 var initials;
-
 var questionPlace = document.querySelector("#question-title")
 var answerHolder = document.querySelector('#answer-holder')
 var answerPlace1 = document.querySelector("#answer1")
 var answerPlace2 = document.querySelector("#answer2")
 var answerPlace3 = document.querySelector("#answer3")
 var answerPlace4 = document.querySelector("#answer4")
+var btnEl = document.querySelectorAll("button")
 var form = document.querySelector("#form")
 var highScoreBtn = document.querySelector("#high-score-button");
 var quizBtn = document.querySelector("#quiz-button");
@@ -41,10 +41,11 @@ startBtn.addEventListener("click", function () {
     isPlaying = true;
     timeLeft = 60;
     clearInterval(timer);
+    answerHolder.style.display = "block"
     form.style.display = "none"
     highScoreBtn.style.display = "none";
     startBtn.style.display = "none";
-    // start countdown timer
+    btnEl.display = "block"
     timer = setInterval(function () {
         timeLeft--;
         timeLeftSpan.textContent = timeLeft;
@@ -138,11 +139,8 @@ answerPlace2.addEventListener("click", function (event) {
 //function to show form + submit button
 function displayForm() {
     isPlaying = false
-    questionPlace.textContent = "All done!"
-    answerPlace1.textContent = "your final score is: " + timeLeft
-    answerPlace2.textContent = ""
-    answerPlace3.textContent = ""
-    answerPlace4.textContent = ""
+    answerHolder.style.display = "none"
+    questionPlace.textContent = "All done! Your Final Score is: " + timeLeft
     form.style.display = "block";
     submitEl.style.display = "block";
 }

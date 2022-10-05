@@ -5,7 +5,7 @@ body {
 
 header {
     background-color: cadetblue;
-    height: 8vh;
+    height: 15vh;
     display: flex;
     flex-direction: wrap;
 }
@@ -26,13 +26,9 @@ main {
 
 #answer-holder {
     background-color: white;
-    display: flex;
+    display: none;
     flex-direction: column;
     height: 0vh;
-}
-
-h5 {
-    background-color: lightblue;
 }
 
 #form , #submit {
